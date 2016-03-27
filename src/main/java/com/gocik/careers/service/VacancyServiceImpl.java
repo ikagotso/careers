@@ -3,11 +3,13 @@ package com.gocik.careers.service;
 import com.gocik.careers.entity.Vacancy;
 import com.gocik.careers.repository.VacancyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Goc1k
  */
+@Service
 public class VacancyServiceImpl implements VacancyService {
 
     private VacancyRepository vacancyRepository;

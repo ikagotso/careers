@@ -6,10 +6,10 @@ App.config(function($routeProvider) {
         $routeProvider
 
             // route for the home page
-//            .when('/', {
-//                templateUrl : 'pages/home.html',
-//                controller  : 'UserController'
-//            })
+            .when('/jobs', {
+                templateUrl : 'jobs.html',
+                controller  : 'JobsController'
+            })
 
 //            .when('/profile', {
 //                templateUrl : 'profile.html',
