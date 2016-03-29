@@ -1,13 +1,13 @@
 package com.gocik.careers.repository;
 
 import com.gocik.careers.entity.Vacancy;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Goc1k
  */
-public interface VacancyRepository extends CrudRepository<Vacancy, Integer> {
+public interface VacancyRepository extends JpaRepository<Vacancy, Integer> {
 //    Integer countByUsername(String username);
 
     

@@ -25,16 +25,15 @@ public class ApplicationController {
 
     @RequestMapping("/jobs")
     public String jobs() {
-
         return "jobs";
     }
 
     @RequestMapping("/jobList")
-    public ResponseEntity<Boolean> list() {
+    public ResponseEntity<Iterable<Vacancy>> list() {
         Iterable<Vacancy> vacancyList = vacancyService.listAllVacancies();
         vacancyList.forEach((vacancy) -> {
             System.out.println(vacancy.getId() + " " + vacancy.getTitle() + " " + vacancy.getDescription());
         });
-        return new ResponseEntity(false, HttpStatus.OK);
+        return new ResponseEntity(vacancyList, HttpStatus.OK);
     }
 }

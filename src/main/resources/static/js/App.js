@@ -8,7 +8,6 @@ App.config(function($routeProvider) {
             // route for the home page
             .when('/jobs', {
                 templateUrl : 'jobs.html',
-                controller  : 'JobsController'
             })
 
 //            .when('/profile', {

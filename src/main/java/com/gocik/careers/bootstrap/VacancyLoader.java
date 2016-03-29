@@ -2,6 +2,7 @@ package com.gocik.careers.bootstrap;
 
 import com.gocik.careers.entity.Vacancy;
 import com.gocik.careers.repository.VacancyRepository;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -24,19 +25,22 @@ public class VacancyLoader implements ApplicationListener<ContextRefreshedEvent>
         System.out.println("Context refreshed DUDE");
         Vacancy firstDummy = new Vacancy();
         firstDummy.setTitle("Gondor");
+        firstDummy.setCompanyName("LOTR Corp");
+        firstDummy.setFromDate(new Date());
+        firstDummy.setToDate(new Date());
+        firstDummy.setCreateDate(new Date());
         firstDummy.setDescription("Battle is Lost");
         vacancyRepository.save(firstDummy);
         
-//        User secondDummy = new User();
-//        secondDummy.setUsername("alakh");
-//        secondDummy.setPassword("akbar");
-//        secondDummy.setBirthDate(new GregorianCalendar(1988, 4, 1).getTime());
-//        secondDummy.setName("Ousama Mellouli");
-//        secondDummy.setPhoneNumber("500001002");
-//        secondDummy.setMonthlySalary(10000);
-//        secondDummy.setCurrentLiabilities(3000);
-//        userRepository.save(secondDummy);
-//        
+        Vacancy secondDummy = new Vacancy();
+        secondDummy.setTitle("Potions Master");
+        secondDummy.setCompanyName("Hogwarts Inc");
+        secondDummy.setFromDate(new Date());
+        secondDummy.setToDate(new Date());
+        secondDummy.setCreateDate(new Date());
+        secondDummy.setDescription("Living Death");
+        vacancyRepository.save(secondDummy);
+                
         System.out.println("Guys Saved DUDE");
     }
 }
