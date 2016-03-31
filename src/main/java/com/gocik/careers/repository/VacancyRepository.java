@@ -11,7 +11,7 @@ public interface VacancyRepository extends JpaRepository<Vacancy, Integer> {
 //    Integer countByUsername(String username);
 
     
-////    Optional<Vacancy> authenticate(@Param("uname") String uname, @Param("psw") String psw);
-//    @Query("SELECT t FROM Vacancy t")
-//    Optional<Vacancy> getVacancyList();
+////    Optional<Vacancy> authenticate(, @Param("psw") String psw);
+//    @Query(value = "insert into VacancyType (name) VALUES (:name)")
+//    void saveVacancyType(@Param("name") String name);
 }

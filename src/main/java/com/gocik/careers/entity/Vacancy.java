@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -26,6 +27,18 @@ public class Vacancy {
     private Date toDate;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date createDate;
+    @ManyToOne
+    private VacancyType vacancyType;
+    @ManyToOne
+    private VacancyCategory vacancyCategory;
+
+    public VacancyType getVacancyType() {
+        return vacancyType;
+    }
+
+    public void setVacancyType(VacancyType vacancyType) {
+        this.vacancyType = vacancyType;
+    }
 
     public Integer getId() {
         return id;
@@ -83,4 +96,12 @@ public class Vacancy {
         this.createDate = createDate;
     }
 
+    public VacancyCategory getVacancyCategory() {
+        return vacancyCategory;
     }
+
+    public void setVacancyCategory(VacancyCategory vacancyCategory) {
+        this.vacancyCategory = vacancyCategory;
+    }
+
+}
