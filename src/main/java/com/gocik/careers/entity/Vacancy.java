@@ -83,4 +83,4 @@ public class Vacancy {
         this.createDate = createDate;
     }
 
-}
+    }
