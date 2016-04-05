@@ -44,12 +44,21 @@
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="type" placeholder="Type">
+                            <select class="form-control" name="typeSelect" id="typeSelect"
+                                    ng-options="type.name for type in ctrl.types track by type.id"
+                                    ng-model="selectedType">
+                                <option value="" selected disabled>Type</option>
+                            </select>
+
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="category" placeholder="Category">
+                            <select class="form-control" name="categorySelect" id="categorySelect"
+                                    ng-options="category.name for category in ctrl.categories track by category.id"
+                                    ng-model="selectedCategory">
+                                <option value="" selected disabled>Category</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-default">Filter</button>
+                        <button type="submit" ng-click="ctrl.go()" class="btn btn-primary"> <i class="icon-search icon-white"></i>Filter</button>
                     </form>
                 </div>
 
