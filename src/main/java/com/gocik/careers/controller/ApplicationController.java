@@ -45,7 +45,7 @@ public class ApplicationController {
 
     @RequestMapping(value = "/filterJobs", method = RequestMethod.POST)
     public ResponseEntity<List<Vacancy>> authenticate(HttpServletRequest request, @RequestBody Vacancy vacancy) {
-        System.out.println("Filtering with params " + vacancy.getVacancyType().getName() + " " + vacancy.getVacancyCategory().getName());
+        //System.out.println("Filtering with params " + vacancy.getVacancyType().getName() + " " + vacancy.getVacancyCategory().getName());
         List<Vacancy> vacancyList = vacancyService.filterVacancies(vacancy);
 //        if (result != null) {
 //            request.getSession().setAttribute("sessionUser", result);

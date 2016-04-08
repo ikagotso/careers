@@ -2,7 +2,15 @@
 
 App.factory('VacancyService', ['$http', '$q', function ($http, $q) {
 
+        var jobData;
+
         return {
+            getJobData: function () {
+                return jobData;
+            },
+            setJobData: function (val) {
+                jobData = val;
+            },
             listAllVacancies: function () {
                 return $http.get('http://localhost:8080/jobList/')
                         .then(
@@ -51,7 +59,6 @@ App.factory('VacancyService', ['$http', '$q', function ($http, $q) {
                                 }
                         );
             },
-            
         };
 
     }]);

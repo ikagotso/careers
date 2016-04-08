@@ -4,6 +4,7 @@ import com.gocik.careers.entity.Vacancy;
 import com.gocik.careers.entity.VacancyCategory;
 import com.gocik.careers.entity.VacancyType;
 import com.gocik.careers.repository.VacancyRepository;
+import java.util.HashMap;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -66,11 +67,29 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public List<Vacancy> filterVacancies(Vacancy vacancy) {
-        Query query = em.createQuery("From Vacancy t where t.vacancyType = :type and t.vacancyCategory = :category", Vacancy.class);
-        query.setParameter("type", vacancy.getVacancyType());
-        query.setParameter("category", vacancy.getVacancyCategory());
+        StringBuilder queryString = new StringBuilder("From Vacancy t where 1=1");
+        HashMap<String, Object> parameterMap = new HashMap();
+
+        if (vacancy.getVacancyType() != null) {
+            queryString.append(" and t.vacancyType.id = :vacancyTypeId ");
+            parameterMap.put("vacancyTypeId", vacancy.getVacancyType().getId());
+        }
+
+        if (vacancy.getVacancyCategory() != null) {
+            queryString.append(" and t.vacancyCategory.id = :vacancyCategoryId ");
+            parameterMap.put("vacancyCategoryId", vacancy.getVacancyCategory().getId());
+        }
+        Query query = em.createQuery(queryString.toString());
+        createQueryParameter(parameterMap, query);
+        
         List<Vacancy> resultList = query.getResultList();
         return resultList;
+    }
+
+    private void createQueryParameter(HashMap<String, Object> map, Query query) {
+        map.forEach((k, v) -> {
+            query.setParameter(k, v);
+        });
     }
 
 }

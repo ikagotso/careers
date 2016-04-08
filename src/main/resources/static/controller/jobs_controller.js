@@ -5,17 +5,25 @@ App.controller('JobsController', ['$scope', '$location', 'VacancyService', funct
         me.authenticationUser = {username: '', password: ''};
         console.log('we are JobsController bitch!');
         me.showVacancies = function () {
-            console.log('vachvenot?');
             VacancyService.listAllVacancies()
                     .then(
                             function (d) {
-                                console.log(d);
                                 if (d) {
                                     me.jobs = d;
                                 }
                             }
                     );
         };
+
+        $scope.$watch(function () {
+            return VacancyService.getJobData();
+        }, function (newValue, oldValue) {
+            if (newValue != null) {
+                me.jobs = newValue;
+            }
+        }, true);
+
+
         me.showVacancies();
 
 

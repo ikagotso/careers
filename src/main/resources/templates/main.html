@@ -37,7 +37,7 @@
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Jobs</a></li>
+                        <li class="active"><a href="">Jobs</a></li>
                         <li><a href="#">Publish</a></li>
                         <li><a href="#">About Us</a></li> 
                         <li><a href="#">Contact</a></li> 
@@ -47,7 +47,7 @@
                             <select class="form-control" name="typeSelect" id="typeSelect"
                                     ng-options="type.name for type in ctrl.types track by type.id"
                                     ng-model="selectedType">
-                                <option value="" selected disabled>Type</option>
+                                <option value="" selected >All Types</option>
                             </select>
 
                         </div>
@@ -55,10 +55,10 @@
                             <select class="form-control" name="categorySelect" id="categorySelect"
                                     ng-options="category.name for category in ctrl.categories track by category.id"
                                     ng-model="selectedCategory">
-                                <option value="" selected disabled>Category</option>
+                                <option value="" selected >All Categories</option>
                             </select>
                         </div>
-                        <button type="submit" ng-click="ctrl.go()" class="btn btn-primary"> <i class="icon-search icon-white"></i>Filter</button>
+                        <button type="submit" ng-click="ctrl.filter()" class="btn btn-primary"> <i class="icon-search icon-white"></i>Filter</button>
                     </form>
                 </div>
 
