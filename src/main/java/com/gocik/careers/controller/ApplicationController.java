@@ -34,6 +34,11 @@ public class ApplicationController {
         return "jobs";
     }
 
+    @RequestMapping("/publish")
+    public String publish() {
+        return "publish";
+    }
+
     @RequestMapping("/jobList")
     public ResponseEntity<List<Vacancy>> listJobs() {
         List<Vacancy> vacancyList = vacancyService.listAllVacancies();

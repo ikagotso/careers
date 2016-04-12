@@ -16,12 +16,11 @@ App.config(function ($routeProvider) {
 
             .when('/jobs', {
                 templateUrl: 'jobs.html'
-            });
+            })
 
-//            .when('/profile', {
-//                templateUrl : 'profile.html',
-//                controller  : 'ProfileController'
-//            })
+            .when('/publish', {
+                templateUrl: 'publish.html'
+            });
 //            
 //            .when('/login', {
 //                templateUrl : 'login.html',
