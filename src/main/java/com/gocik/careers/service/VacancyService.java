@@ -19,6 +19,8 @@ public interface VacancyService {
 
     List<VacancyCategory> listAllVacancyCategories();
 
+    Vacancy saveVacancy(Vacancy vacancy);
+
     VacancyType saveVacancyType(String name);
 
     VacancyCategory saveVacancyCategory(String name);

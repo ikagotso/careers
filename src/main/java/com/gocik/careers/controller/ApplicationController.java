@@ -49,18 +49,22 @@ public class ApplicationController {
     }
 
     @RequestMapping(value = "/filterJobs", method = RequestMethod.POST)
-    public ResponseEntity<List<Vacancy>> authenticate(HttpServletRequest request, @RequestBody Vacancy vacancy) {
-        //System.out.println("Filtering with params " + vacancy.getVacancyType().getName() + " " + vacancy.getVacancyCategory().getName());
+    public ResponseEntity<List<Vacancy>> filterJobs(HttpServletRequest request, @RequestBody Vacancy vacancy) {
         List<Vacancy> vacancyList = vacancyService.filterVacancies(vacancy);
-//        if (result != null) {
-//            request.getSession().setAttribute("sessionUser", result);
-//            return new ResponseEntity(result, HttpStatus.OK);
-//        }
-
         vacancyList.forEach((v) -> {
             System.out.println(v.getId() + " " + v.getTitle() + " " + v.getDescription());
         });
         return new ResponseEntity(vacancyList, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/publishJob", method = RequestMethod.POST)
+    public ResponseEntity<Boolean> publishJob(HttpServletRequest request, @RequestBody Vacancy vacancy) {
+        Vacancy result = vacancyService.saveVacancy(vacancy);
+        System.out.println(vacancy.getTitle());
+        if (result != null) {
+            return new ResponseEntity(true, HttpStatus.OK);
+        }
+        return new ResponseEntity(false, HttpStatus.NO_CONTENT);
     }
 
     //

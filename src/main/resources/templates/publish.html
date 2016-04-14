@@ -1,28 +1,28 @@
-<div class="container">
+<div class="container" ng-controller="PublishController as pctrl">
     <div class="col-md-6 col-md-offset-3">
         <div class="form-area">  
             <form role="form">
                 <br style="clear:both">
                 <h3 style="margin-bottom: 25px; text-align: center;">Publish Form</h3>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="title" name="name" placeholder="Job Title" required>
+                    <input type="text" class="form-control" id="title" name="title" ng-model="pctrl.model.title" placeholder="Job Title" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name" required>
+                    <input type="text" class="form-control" id="companyName" name="companyName" ng-model="pctrl.model.companyName" placeholder="Company Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control" id="fromDate" name="fromDate">
+                    <input type="date" class="form-control" id="fromDate" ng-model="pctrl.model.fromDate" name="fromDate">
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control" id="toDate" name="toDate">
+                    <input type="date" class="form-control" id="toDate" ng-model="pctrl.model.toDate" name="toDate">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" type="textarea" id="description" placeholder="Description" maxlength="140" rows="7"></textarea>
+                    <textarea class="form-control" type="textarea" ng-model="pctrl.model.description"  id="description" placeholder="Description" maxlength="140" rows="7"></textarea>
                 </div>
                 <div class="form-group">
                     <select class="form-control" name="typeSelect" id="typeSelect"
                             ng-options="type.name for type in ctrl.types track by type.id"
-                            ng-model="selectedType">
+                            ng-model="pctrl.model.vacancyType">
                         <option value="" selected disabled>Type</option>
                     </select>
 
@@ -30,12 +30,12 @@
                 <div class="form-group">
                     <select class="form-control" name="categorySelect" id="categorySelect"
                             ng-options="category.name for category in ctrl.categories track by category.id"
-                            ng-model="selectedCategory">
+                            ng-model="pctrl.model.vacancyCategory">
                         <option value="" selected disabled>Category</option>
                     </select>
                 </div>
 
-                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Publish</button>
+                <button type="button" id="submit" name="submit"  ng-click="pctrl.publish()" class="btn btn-primary pull-right">Publish</button>
             </form>
         </div>
     </div>

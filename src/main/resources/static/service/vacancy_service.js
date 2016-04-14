@@ -59,6 +59,18 @@ App.factory('VacancyService', ['$http', '$q', function ($http, $q) {
                                 }
                         );
             },
+            publishVacancy: function (param) {
+                return $http.post('http://localhost:8080/publishJob/', param)
+                        .then(
+                                function (response) {
+                                    return response.data;
+                                },
+                                function (errResponse) {
+                                    console.error('Error while fetching list!');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+            }
         };
 
     }]);
